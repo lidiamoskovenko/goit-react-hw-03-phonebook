@@ -8,7 +8,7 @@ import ContactList from "./ContactList";
 export class App extends Component {
   state = {
     contacts: [],
-    filter: '',
+    filter: ' ',
   };
   componentDidMount() {
    const savedContacts = localStorage.getItem("contacts");
