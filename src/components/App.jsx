@@ -29,6 +29,7 @@ class App extends Component {
   }
 
   onSubmitAddContact = ({ name, number }) => {
+    if(this.state.contacts){
       const existingContact = this.state.contacts.find(
         (contact) => contact.name.toLowerCase() === name.toLowerCase()
       );
@@ -45,6 +46,9 @@ class App extends Component {
           contacts: [...prevState.contacts, newContact],
         }));
       }
+
+
+    }
   
   };
 
