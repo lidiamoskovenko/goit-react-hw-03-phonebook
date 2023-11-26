@@ -55,9 +55,10 @@ export class App extends Component {
   render() {
     const { contacts, filter } = this.state;
     const filteredContacts = contacts.filter((contact) =>
-    contact.name.toLowerCase().includes((filter || '').toLowerCase())
-  );  
-    return (
+    contact.name.toLowerCase().includes(filter && filter.toLowerCase())
+  );
+  
+  return (
       <div style={{ height: '100px', padding: '20px' }}>
         <h1>Phonebook</h1>
         <ContactForm onSubmit={this.onSubmitAddContact} />
