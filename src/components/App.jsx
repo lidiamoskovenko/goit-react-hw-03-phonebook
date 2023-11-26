@@ -77,7 +77,7 @@ class App extends Component {
         <ContactForm onSubmit={this.onSubmitAddContact} />
         <h2>Contacts</h2>
         <Filter filter={filter} onChange={this.isFilterContact} />
-        {contacts && < ContactList contacts={contacts} handleDeleteContact={this.handleDeleteContact} />}
+        < ContactList contacts={contacts} handleDeleteContact={this.handleDeleteContact} />
       </div>
     );
   }
