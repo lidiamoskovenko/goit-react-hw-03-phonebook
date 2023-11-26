@@ -55,7 +55,7 @@ export class App extends Component {
   render() {
     const { contacts, filter } = this.state;
     const filteredContacts = contacts.filter((contact) =>
-    contact.name.toLowerCase().includes(filter && filter.toLowerCase())
+    contact.name.toLowerCase().includes((filter || '').toLowerCase())
   );  
     return (
       <div style={{ height: '100px', padding: '20px' }}>
