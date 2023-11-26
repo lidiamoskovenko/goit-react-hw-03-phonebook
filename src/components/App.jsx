@@ -19,7 +19,7 @@ class App extends Component {
     if (savedContacts) {
       this.setState({ contacts: JSON.parse(savedContacts)});
     }
-    
+
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -73,7 +73,7 @@ class App extends Component {
         <ContactForm onSubmit={this.onSubmitAddContact} />
         <h2>Contacts</h2>
         <Filter filter={filter} onChange={this.isFilterContact} />
-        < ContactList contacts={contacts} handleDeleteContact={this.handleDeleteContact} />
+        {contacts && < ContactList contacts={contacts} handleDeleteContact={this.handleDeleteContact} />}
       </div>
     );
   }
