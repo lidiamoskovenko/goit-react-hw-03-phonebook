@@ -52,20 +52,22 @@ class App extends Component {
       contacts: this.state.contacts.filter((contact) => contact.id !== contactId),
     });
   };
-
-  render() {
+  filterContacts = () => {
     const { contacts, filter } = this.state;
-    const filteredContacts = contacts.filter((contact) =>
-      contact.name.toLowerCase().includes(filter.toLowerCase())
-    );
-
+    return contacts.filter(contact => {
+      return contact.name.toLowerCase().includes(filter.toLowerCase());
+    });
+  };
+  render() {
+    const { filter } = this.state;
+    const contacts = filter ? this.filterContacts() : this.state.contacts;
     return (
       <div style={{ height: '100px', padding: '20px' }}>
         <h1>Phonebook</h1>
         <ContactForm onSubmit={this.onSubmitAddContact} />
         <h2>Contacts</h2>
         <Filter filter={filter} onChange={this.isFilterContact} />
-        <ContactList contacts={filteredContacts} handleDeleteContact={this.handleDeleteContact} />
+        <ContactList contacts={contacts} handleDeleteContact={this.handleDeleteContact} />
       </div>
     );
   }
