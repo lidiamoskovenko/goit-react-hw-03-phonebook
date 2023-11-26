@@ -19,7 +19,7 @@ class App extends Component {
     if (savedContacts) {
       this.setState({ contacts: JSON.parse(savedContacts)});
     }
-
+    // this.setState({ contacts: this.state.contacts });
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -29,7 +29,7 @@ class App extends Component {
   }
 
   onSubmitAddContact = ({ name, number }) => {
-    if(this.state.contacts){
+    if(Array.isArray(this.state.contacts)){
       const existingContact = this.state.contacts.find(
         (contact) => contact.name.toLowerCase() === name.toLowerCase()
       );
