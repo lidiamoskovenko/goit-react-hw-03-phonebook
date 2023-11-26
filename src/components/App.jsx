@@ -54,21 +54,20 @@ export class App extends Component {
 
   render() {
     const { contacts, filter } = this.state;
-    if(contacts){
-      const filteredContacts = contacts.filter((contact) =>
-      contact.name.toLowerCase().includes(filter.toLowerCase())
-    );
+    const filteredContacts = contacts.filter((contact) =>
+    contact.name.toLowerCase().includes(filter && filter.toLowerCase())
+  );  
     return (
       <div style={{ height: '100px', padding: '20px' }}>
         <h1>Phonebook</h1>
         <ContactForm onSubmit={this.onSubmitAddContact} />
         <h2>Contacts</h2>
-        <Filter filter={filter} onChange={this.isFilterContact} />
+       <Filter filter={filter} onChange={this.isFilterContact} />
         <ContactList contacts={filteredContacts} handleDeleteContact={this.handleDeleteContact} />
       </div>
     );
 
     }
   }
-}
+
 
